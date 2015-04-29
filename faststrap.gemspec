@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'faststrap'
-  spec.version     = '0.0.3'
+  spec.version     = '0.0.4'
   spec.date        = '2015-04-29'
   spec.summary     = "setup and bootstrap your mac OS environment for development."
   spec.description = "setup and bootstrap your mac OS environment for development."
