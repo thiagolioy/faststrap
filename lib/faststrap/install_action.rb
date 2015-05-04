@@ -3,7 +3,7 @@ require 'faststrap/install_actions/install_actions_helper'
 module Faststrap
   class InstallAction
 
-    def self.index_pos
+    def self.index
       0
     end
 
@@ -11,12 +11,17 @@ module Faststrap
       "InstallAction description"
     end
 
-    def self.install_cmd
+    def self.cmd
       "InstallAction cmd"
     end
 
-    def self.install_action_name
+    def self.name
       "InstallAction"
+    end
+
+    def self.run
+      puts "Installing #{name} .."
+      cmd
     end
   end
 end

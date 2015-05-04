@@ -2,7 +2,7 @@ module Faststrap
   module InstallActions
     class BashCompletionInstallAction < InstallAction
 
-      def self.index_pos
+      def self.index
         1
       end
 
@@ -10,10 +10,14 @@ module Faststrap
         "BashCompletionInstallAction description"
       end
 
-      def self.install_cmd
+      def self.cmd
          puts "echo BashCompletionInstallAction"
       end
-      
+
+      def self.name
+        "bash-completion"
+      end
+
     end
   end
 end

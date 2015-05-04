@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   # Development only
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
+  spec.add_runtime_dependency "thor", "~> 0.19.1"
   spec.add_development_dependency 'rspec', '~> 3.1.0'
   spec.add_development_dependency 'rubocop', '~> 0.29'
 

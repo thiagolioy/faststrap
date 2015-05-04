@@ -1,32 +1,50 @@
+require 'thor'
+require 'thor/group'
+
 require 'faststrap/install_actions/install_actions_helper'
 require 'faststrap/install_action'
 
 module Faststrap
 
-  def self.list_actions(mod)
-    cs = mod.constants.select {|c| Class === mod.const_get(c)}
-    cs.collect! { |c| eval("#{mod}::#{c.to_s}") }
-    sort_actions(cs)
+
+  def self.possible_responses(actions_count)
+    (1..actions_count).to_a.collect! { |e| e.to_s } << "*"
   end
 
-  def self.sort_actions(actions)
-    actions.sort {|x,y| x.index_pos <=> y.index_pos }
-  end
-
-  def self.present_actions(mod)
-    list_actions(mod).each do |a|
-      puts "#{a.index_pos} - #{a.description}"
+  def self.handle_answer(answer,actions)
+    actions.each do |a|
+      if answer == "*"
+        a.run
+      else
+        a.run if answer == a.index
+      end
     end
   end
 
 
-  Faststrap::InstallActions.load_default_actions
+  class Bootstrap < Thor
+     include Thor::Actions
 
+     desc 'ios', 'bootstrap your computer for ios env'
+     def ios
+       puts "We have the follow actions for ios :"
 
-  puts "\nSelect what you want to install by typing the number of the action.\nYou can type more than one separeted by commas (Ex: 0,1,3,5)\nType all to install everything."
-  present_actions(Faststrap::InstallActions)
-  puts "all - Everything"
+       Faststrap::InstallActions.load_default_actions
+       install_actions = Faststrap::InstallActions.list
+       install_actions_count = install_actions.count
 
+       Faststrap::InstallActions.present
+       puts "* - Everything"
+
+       answer = ask("What do you want to install for ios environment ?",
+                      :limited_to => Faststrap.possible_responses(install_actions_count))
+
+       answer = (answer.to_i) -1  unless answer == '*'
+
+       Faststrap.handle_answer(answer,install_actions)
+
+     end
+  end
 
 
 
