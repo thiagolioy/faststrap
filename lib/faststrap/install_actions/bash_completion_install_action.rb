@@ -7,11 +7,11 @@ module Faststrap
       end
 
       def self.description
-        "BashCompletionInstallAction description"
+        "Install bash-completion cmd using homebrew"
       end
 
       def self.cmd
-         puts "echo BashCompletionInstallAction"
+         system "brew install bash-completion"
       end
 
       def self.name

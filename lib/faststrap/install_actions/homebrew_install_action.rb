@@ -7,10 +7,10 @@ module Faststrap
        end
 
        def self.description
-         "HomebrewInstallAction description"
+         "Install Homebrew"
        end
        def self.cmd
-         puts "echo HomebrewInstallAction"
+         system 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
        end
 
        def self.name
