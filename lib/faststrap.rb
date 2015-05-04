@@ -26,6 +26,7 @@ module Faststrap
      include Thor::Actions
 
      desc 'ios', 'bootstrap your computer for ios env'
+     method_option :all,:aliases => "-a", :type => :boolean, :default => false
      def ios
        puts "We have the follow actions for ios :"
 
@@ -36,12 +37,17 @@ module Faststrap
        Faststrap::InstallActions.present
        puts "* - Everything"
 
-       answer = ask("What do you want to install for ios environment ?",
-                      :limited_to => Faststrap.possible_responses(install_actions_count))
+       everything = options[:all]
 
-       answer = (answer.to_i) -1  unless answer == '*'
-
-       Faststrap.handle_answer(answer,install_actions)
+       if everything
+         puts "Installing everything .."
+         Faststrap.handle_answer('*',install_actions)
+       else
+         answer = ask("What do you want to install for ios environment ?",
+                        :limited_to => Faststrap.possible_responses(install_actions_count))
+         answer = (answer.to_i) -1  unless answer == '*'
+         Faststrap.handle_answer(answer,install_actions)
+       end
 
      end
   end
