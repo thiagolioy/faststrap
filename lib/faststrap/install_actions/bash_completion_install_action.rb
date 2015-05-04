@@ -3,7 +3,7 @@ module Faststrap
     class BashCompletionInstallAction < InstallAction
 
       def self.index
-        1
+        8
       end
 
       def self.description

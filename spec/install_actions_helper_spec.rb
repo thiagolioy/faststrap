@@ -7,15 +7,33 @@ describe Faststrap do
 
     let(:install_actions_ordered) do
       [
-        Faststrap::InstallActions::HomebrewInstallAction,
-        Faststrap::InstallActions::BashCompletionInstallAction
+         Faststrap::InstallActions::HomebrewInstallAction,
+         Faststrap::InstallActions::XcodeCmdToolsInstallAction,
+         Faststrap::InstallActions::GitInstallAction,
+         Faststrap::InstallActions::CocoapodsInstallAction,
+         Faststrap::InstallActions::XctoolInstallAction,
+         Faststrap::InstallActions::FastlaneInstallAction,
+         Faststrap::InstallActions::JenkinsInstallAction,
+         Faststrap::InstallActions::RestClientInstallAction,
+         Faststrap::InstallActions::BashCompletionInstallAction,
+         Faststrap::InstallActions::CarthageInstallAction,
+         Faststrap::InstallActions::CalabashBundleInstallAction
       ]
     end
 
     let(:install_actions_unordered) do
       [
         Faststrap::InstallActions::BashCompletionInstallAction,
-        Faststrap::InstallActions::HomebrewInstallAction
+        Faststrap::InstallActions::HomebrewInstallAction,
+        Faststrap::InstallActions::XcodeCmdToolsInstallAction,
+        Faststrap::InstallActions::GitInstallAction,
+        Faststrap::InstallActions::CarthageInstallAction,
+        Faststrap::InstallActions::CalabashBundleInstallAction,
+        Faststrap::InstallActions::CocoapodsInstallAction,
+        Faststrap::InstallActions::XctoolInstallAction,
+        Faststrap::InstallActions::FastlaneInstallAction,
+        Faststrap::InstallActions::JenkinsInstallAction,
+        Faststrap::InstallActions::RestClientInstallAction
       ]
     end
 
