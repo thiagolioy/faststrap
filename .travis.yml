@@ -1,0 +1,11 @@
+language: ruby
+before_install: gem update --system
+rvm:
+- 2.0.0
+- 2.1.0
+deploy:
+  provider: rubygems
+  api_key:
+    secure: jqkhYZOw8pBREElj/TxjjgsmxnlS9Ld3M8VNE24hWLSMDu5uu9leK/GBI0dV42wdWk6LZhzwZTtpVJYQihQwFocyQO56CIaFNIkYUJ9N+6ATV7G1JFagLzov4cNXnYWbs4GqQ2oi/g2F6jUBlDpKbwDYQesBmBh7wGTeRDyYIW4=
+  on:
+    tags: true
