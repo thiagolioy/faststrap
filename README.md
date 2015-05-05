@@ -21,7 +21,7 @@ Contact the developer on Twitter: [@tplioy](https://twitter.com/tplioy)
 ## Features
 
 Tired of having to install several different programs everytime you format or buy a new machine ? New hires on your company are wasting time to get there machines ready to code ?
-With faststrap you code install the ios environment really easy using just one command.
+With faststrap you install the ios environment really easy using just one command.
 
 ```shell
 faststrap ios -a
@@ -32,6 +32,14 @@ faststrap ios -a
 If you are familiar with the command line and Ruby, install `faststrap` yourself:
 
     sudo gem install faststrap
+
+## Contribute
+My goal here is to be the bootstrap platform for several development environments. Install your
+dev environment into a machine should be somthing very easy to do.Contributors are more than welcome,please help me to achive this goal. This project is new and still misses lots of things such as:
+
+- Better handling InstallActions order
+- Other environments besides ios (Android, Rails, Web, Node)
+- Better test coverage
 
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
