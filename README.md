@@ -24,7 +24,7 @@ Tired of having to install several different programs everytime you format or bu
 With faststrap you install the ios environment really easy using just one command.
 
 ```shell
-faststrap ios -a
+faststrap ios 
 ```
 
 <h3 align="center">
@@ -34,7 +34,7 @@ faststrap ios -a
 Remove installed ios tools with only one cmd
 
 ```shell
-faststrap ios -a
+faststrap clean
 ```
 <h3 align="center">
   <img src="assets/faststrapclean.png" alt="fastlane clean cmd" />
