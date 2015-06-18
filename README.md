@@ -27,6 +27,11 @@ With faststrap you install the ios environment really easy using just one comman
 faststrap ios -a
 ```
 
+Remove installed ios tools with only one cmd
+
+```shell
+faststrap ios -a
+```
 ## Installation
 
 If you are familiar with the command line and Ruby, install `faststrap` yourself:
@@ -37,8 +42,8 @@ If you are familiar with the command line and Ruby, install `faststrap` yourself
 My goal here is to be the bootstrap platform for several development environments. Install your
 dev environment into a machine should be somthing very easy to do.Contributors are more than welcome,please help me to achive this goal. This project is new and still misses lots of things such as:
 
-- Better handling InstallActions order
 - Other environments besides ios (Android, Rails, Web, Node)
+- Tests
 - Better test coverage
 
 ## License

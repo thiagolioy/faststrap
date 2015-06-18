@@ -66,7 +66,7 @@ module Faststrap
       l.find{|e| e.name.upcase.include?("brew".upcase)}
     end
 
-    def self.delete_and_push_action(e,list)
+    def self.delete_and_push_action(e,l)
       return l if e.nil?
       l.delete(e)
       l.push(e)
