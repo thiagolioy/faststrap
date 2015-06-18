@@ -2,8 +2,8 @@ module Faststrap
   module InstallActions
     class BashCompletionInstallAction < InstallAction
 
-      def self.index
-        8
+      def self.group
+        Faststrap::ActionsGroup::COMAND_LINE
       end
 
       def self.description
@@ -11,12 +11,21 @@ module Faststrap
       end
 
       def self.cmd
-         system "brew install bash-completion"
+        Faststrap::InstallActions.brew_install "bash-completion"
+      end
+
+      def self.ucmd
+        Faststrap::InstallActions.brew_uninstall "bash-completion"
       end
 
       def self.name
         "bash-completion"
       end
+
+      def self.installed?
+        Faststrap::InstallActions.cmd? "bash-completion"
+      end
+
 
     end
   end

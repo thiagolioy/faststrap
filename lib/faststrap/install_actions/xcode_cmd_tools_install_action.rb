@@ -2,8 +2,8 @@ module Faststrap
   module InstallActions
     class XcodeCmdToolsInstallAction < InstallAction
 
-       def self.index
-         1
+       def self.group
+         Faststrap::ActionsGroup::COMAND_LINE
        end
 
        def self.description
@@ -13,10 +13,18 @@ module Faststrap
          system 'xcode-select --install'
        end
 
-       def self.name
-         "Xcode Cmd Tools"
+       def self.ucmd
+         `sudo rm -rf /Library/Developer/CommandLineTools`
        end
 
+       def self.name
+         "XcodeCmdTools"
+       end
+
+       def self.installed?
+          `xcode-select -p`
+          $?.success?
+       end
     end
   end
 end

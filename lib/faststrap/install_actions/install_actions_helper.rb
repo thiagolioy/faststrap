@@ -1,3 +1,4 @@
+require 'colorize'
 module Faststrap
   module InstallActions
 
@@ -15,14 +16,66 @@ module Faststrap
       sort_actions(cs)
     end
 
-    def self.sort_actions(actions)
-      actions.sort {|x,y| x.index <=> y.index }
+    def self.list_installed
+      l = list.select{|a| a.installed?}
+      delete_and_push_action(find_brew_action(l),l)
     end
 
-    def self.present
-      list.each do |a|
-        puts "#{a.index + 1} - #{a.name}"
+    def self.sort_actions(actions)
+      l = actions.sort {|x,y| x.name <=> y.name}
+      delete_and_unshift_action(find_brew_action(l),l)
+    end
+
+    def self.present(g)
+      puts "\n#{g} Group:"
+      list.select{|a| a.group == g}.each do |ac|
+        puts " - #{ac.name}".yellow
       end
+    end
+
+    def self.cmd?(c)
+      `which #{c}`
+      $?.success?
+    end
+
+
+    def self.brew_install(g)
+      brew?
+      system "brew install #{g}"
+    end
+
+    def self.gem_install(g)
+      system "sudo gem install #{g} --verbose"
+    end
+
+    def self.brew_uninstall(g)
+      brew?
+      system "brew uninstall #{g}"
+    end
+
+    def self.gem_uninstall(g)
+      system "sudo gem uninstall #{g} --verbose"
+    end
+
+    private
+    def self.brew?
+      raise "HomeBrew not installed".red unless cmd? "brew"
+    end
+
+    def self.find_brew_action(l)
+      l.find{|e| e.name.upcase.include?("brew".upcase)}
+    end
+
+    def self.delete_and_push_action(e,list)
+      return l if e.nil?
+      l.delete(e)
+      l.push(e)
+    end
+
+    def self.delete_and_unshift_action(e,l)
+      return l if e.nil?
+      l.delete(e)
+      l.unshift(e)
     end
 
   end

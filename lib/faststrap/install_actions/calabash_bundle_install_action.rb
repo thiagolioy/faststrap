@@ -2,20 +2,31 @@ module Faststrap
   module InstallActions
     class CalabashBundleInstallAction < InstallAction
 
-       def self.index
-         10
+      @@gems = ["calabash-common",'calabash-cucumber',
+        'cs-bdd','blabla']
+
+       def self.group
+         Faststrap::ActionsGroup::TESTS
        end
 
        def self.description
          "Install Calabash Bundle[calabash-common,calabash-cucumber,cs-bdd,blabla]"
        end
        def self.cmd
-         ["calabash-common",'calabash-cucumber',
-           'cs-bdd','blabla'].map { |d| system("sudo gem install #{d} --verbose") }
+         @@gems.map { |d| Faststrap::InstallActions.gem_install d }
        end
 
+       def self.ucmd
+         @@gems.map { |d| Faststrap::InstallActions.gem_uninstall d }
+       end
+
+
        def self.name
-         "Calabash Bundle[calabash-common,calabash-cucumber,cs-bdd,blabla]"
+         "Calabash"
+       end
+
+       def self.installed?
+         Faststrap::InstallActions.cmd? "calabash-common"
        end
 
     end

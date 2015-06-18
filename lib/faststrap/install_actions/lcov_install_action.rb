@@ -1,31 +1,29 @@
 module Faststrap
   module InstallActions
-    class XctoolInstallAction < InstallAction
+    class LcovInstallAction < InstallAction
 
        def self.group
          Faststrap::ActionsGroup::TESTS
        end
 
        def self.description
-         "Install Xctool"
+         "Install lcov"
        end
-
        def self.cmd
-         Faststrap::InstallActions.brew_install "xctool"
+         Faststrap::InstallActions.brew_install "lcov"
        end
 
        def self.ucmd
-         Faststrap::InstallActions.brew_uninstall "xctool"
+         Faststrap::InstallActions.brew_uninstall "lcov"
        end
 
        def self.name
-         "xctool"
+         "lcov"
        end
 
        def self.installed?
-         Faststrap::InstallActions.cmd? "xctool"
+         Faststrap::InstallActions.cmd? "lcov"
        end
-
     end
   end
 end

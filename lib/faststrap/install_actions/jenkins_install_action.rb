@@ -2,19 +2,28 @@ module Faststrap
   module InstallActions
     class JenkinsInstallAction < InstallAction
 
-       def self.index
-         6
+       def self.group
+         Faststrap::ActionsGroup::CI
        end
+
 
        def self.description
          "Install Jenkins CI"
        end
        def self.cmd
-         system 'brew install jenkins'
+         Faststrap::InstallActions.brew_install "jenkins"
+       end
+
+       def self.ucmd
+         Faststrap::InstallActions.brew_uninstall "jenkins"
        end
 
        def self.name
-         "Jenkins CI"
+         "Jenkins"
+       end
+
+       def self.installed?
+         Faststrap::InstallActions.cmd? "jenkins"
        end
 
     end
