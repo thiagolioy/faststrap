@@ -27,11 +27,20 @@ With faststrap you install the ios environment really easy using just one comman
 faststrap ios -a
 ```
 
+<h3 align="center">
+  <img src="assets/faststrapios.png" alt="fastlane ios cmd" />
+</h3>
+
 Remove installed ios tools with only one cmd
 
 ```shell
 faststrap ios -a
 ```
+<h3 align="center">
+  <img src="assets/faststrapclean.png" alt="fastlane clean cmd" />
+</h3>
+
+
 ## Installation
 
 If you are familiar with the command line and Ruby, install `faststrap` yourself:
