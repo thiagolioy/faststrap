@@ -5,6 +5,7 @@
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/thiagolioy/faststrap/blob/master/LICENSE)
 [![Gem](https://img.shields.io/gem/v/faststrap.svg?style=flat)](https://rubygems.org/gems/faststrap)
 [![Build Status](https://img.shields.io/travis/thiagolioy/faststrap/master.svg?style=flat)](https://travis-ci.org/thiagolioy/faststrap)
+[![Coverage Status](https://coveralls.io/repos/thiagolioy/faststrap/badge.svg?branch=master)](https://coveralls.io/r/thiagolioy/faststrap?branch=master)
 
 ######*faststrap* lets you setup and bootstrap your mac OS environment for development.
 
@@ -24,7 +25,7 @@ Tired of having to install several different programs everytime you format or bu
 With faststrap you install the ios environment really easy using just one command.
 
 ```shell
-faststrap ios 
+faststrap ios
 ```
 
 <h3 align="center">
