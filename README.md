@@ -14,7 +14,7 @@ Contact the developer on Twitter: [@tplioy](https://twitter.com/tplioy)
 -------
 <p align="center">
     <a href="#features">Features</a> &bull;
-    <a href="#installation">Installation</a> &bull;
+    <a href="#installation">Installation</a>
 </p>
 
 -------
